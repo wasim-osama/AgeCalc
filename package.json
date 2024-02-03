@@ -1,0 +1,14 @@
+{
+  "name": "agecalculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass --watch resources/stylesheet/style.scss:assets/css/style.min.css --style compressed"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "flatpickr": "^4.6.13"
+  }
+}
