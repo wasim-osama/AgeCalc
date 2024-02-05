@@ -31,121 +31,123 @@
 <!--/Header-->
 <!--AgeSelector-->
 <div class="container">
-    <section class="age-selector">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-3">
-                <div class="age-selector-area">
-                    <!--select date-->
-                    <div class="date-picker pb-2">
-                        <div class="title h5 text-light text-center">Your Date Of Birth Is:</div>
-                        <form action="">
-                            <input class="form-control" type="text" id="dob" placeholder="Enter Your Birthdate here">
-                        </form>
+    <div class="w-100" id="ageForm">
+        <section class="age-selector">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="age-selector-area">
+                        <!--select date-->
+                        <div class="date-picker pb-2">
+                            <div class="title h5 text-light text-center">Your Date Of Birth Is:</div>
+                            <form action="">
+                                <input class="form-control" type="text" id="dob" placeholder="Enter Your Birthdate here">
+                            </form>
+                        </div>
+                        <!--today's-date-->
+                        <div class="date-picker pb-2">
+                            <div class="title h5 text-light text-center">Today's Date</div>
+                            <form action="">
+                                <input class="form-control" type="text" id="today">
+                            </form>
+                        </div>
                     </div>
-                    <!--today's-date-->
-                    <div class="date-picker pb-2">
-                        <div class="title h5 text-light text-center">Today's Date</div>
-                        <form action="">
-                            <input class="form-control" type="text" id="today">
-                        </form>
+                    <!--Button-->
+                    <div class="text-center">
+                        <button class="btn btn-success my-3 py-3 w-50" id="calcBtn">
+                            <i class="las la-calculator"></i>
+                            Calculate
+                        </button>
                     </div>
+                    <!--/Button-->
                 </div>
-                <!--Button-->
-                <div class="text-center">
-                    <button class="btn btn-success my-3 py-3 w-50">
-                        <i class="las la-calculator"></i>
-                        Calculate
-                    </button>
-                </div>
-                <!--/Button-->
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     <!--/AgeSelector-->
-    <!--AgeResult-->
-    <section class="age-result">
-        <div class="row">
-            <div class="col-6 offset-3">
-                <!--select date-->
-                <div class="c-date text-center age-selector-area">
-                    <div class="title h5 text-light">Your Age Is</div>
-                    <div class="date-box-container d-flex justify-content-center">
-                        <div class="date-box rounded-pill bg-light d-flex align-items-center">
-                            <div class="w-100">
-                                <div class="text">Date</div>
-                                <div class="num fs-3 fw-bold">11</div>
-                            </div>
-                        </div>
-                        <div class="date-box rounded-pill bg-light d-flex align-items-center mx-2">
-                            <div class="w-100">
-                                <div class="text">Month</div>
-                                <div class="num fs-3 fw-bold">11</div>
-                            </div>
-                        </div>
-                        <div class="date-box rounded-pill bg-light d-flex align-items-center">
-                            <div class="w-100">
-                                <div class="text">Year</div>
-                                <div class="num fs-3 fw-bold">11</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--today's-date-->
-            </div>
-        </div>
-    </section>
-    <!--/AgeResult-->
-    <!--NextBD-->
-    <section class="age-result my-3">
-        <div class="row">
-            <div class="col-6 offset-3">
-                <!--select date-->
-                <div class="c-date text-center age-selector-area">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="title h5 text-light">Your Age Is</div>
-                            <div class="date-box-container d-flex justify-content-center">
-                                <div class="date-box rounded-pill bg-light d-flex align-items-center">
-                                    <div class="w-100">
-                                        <div class="text">Days</div>
-                                        <div class="num fs-3 fw-bold">11</div>
-                                    </div>
-                                </div>
-                                <div class="date-box rounded-pill bg-light d-flex align-items-center mx-2">
-                                    <div class="w-100">
-                                        <div class="text">Hours</div>
-                                        <div class="num fs-3 fw-bold">11</div>
-                                    </div>
+    <div class="w-100" id="ageResult" style="display: none">
+        <!--AgeResult-->
+        <section class="age-result" >
+            <div class="row">
+                <div class="col-6 offset-3">
+                    <!--showResult-->
+                    <div class="c-date text-center age-selector-area">
+                        <div class="title h5 text-light">Your Age Is</div>
+                        <div class="date-box-container d-flex justify-content-center">
+                            <div class="date-box rounded-pill bg-light d-flex align-items-center">
+                                <div class="w-100">
+                                    <div class="text">Year</div>
+                                    <div class="num fs-3 fw-bold" id="yearValue"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-8">
-                            <div class="d-flex align-items-center justify-content-center h-100">
-                                <div class="title fs-3 text-light">Your Birthday Is On <br> <span
-                                        class="fw-bold">Friday</span>
+                            <div class="date-box rounded-pill bg-light d-flex align-items-center mx-2">
+                                <div class="w-100">
+                                    <div class="text">Month</div>
+                                    <div class="num fs-3 fw-bold" id="monthValue"></div>
+                                </div>
+                            </div>
+                            <div class="date-box rounded-pill bg-light d-flex align-items-center">
+                                <div class="w-100">
+                                    <div class="text">Day</div>
+                                    <div class="num fs-3 fw-bold" id="dayValue"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!--today's-date-->
-                <!--Button-->
-                <div class="text-center">
-                    <button class="btn btn-success my-3 py-3 w-50">
-                        <i class="las la-sync"></i>
-                        Re-Calculate
-                    </button>
-                </div>
-                <!--/Button-->
             </div>
-        </div>
-    </section>
+        </section>
+        <!--/AgeResult-->
+        <!--NextBD-->
+        <section class="age-result my-3">
+            <div class="row">
+                <div class="col-6 offset-3">
+                    <!--select date-->
+                    <div class="c-date text-center age-selector-area">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="title h5 text-light">Your Age Is</div>
+                                <div class="date-box-container d-flex justify-content-center">
+                                    <div class="date-box rounded-pill bg-light d-flex align-items-center">
+                                        <div class="w-100">
+                                            <div class="text">Days</div>
+                                            <div class="num fs-3 fw-bold" id="nextBirthdayDays">11</div>
+                                        </div>
+                                    </div>
+                                    <div class="date-box rounded-pill bg-light d-flex align-items-center mx-2">
+                                        <div class="w-100">
+                                            <div class="text">Hours</div>
+                                            <div class="num fs-3 fw-bold" id="nextBirthdayHours">11</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="d-flex align-items-center justify-content-center h-100">
+                                    <div class="title fs-3 text-light">Your Birthday Is On <br> <span
+                                            class="fw-bold" id="nextBirthdayDayName">Friday</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!--next-bd-->
+                    <!--today's-date-->
+                    <!--Button-->
+                    <div class="text-center">
+                        <button class="btn btn-success my-3 py-3 w-50" id="recalBtn">
+                            <i class="las la-sync"></i>
+                            Re-Calculate
+                        </button>
+                    </div>
+                    <!--/Button-->
+                </div>
+            </div>
+        </section>
+    </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="assets/js/app.js"></script>
+<script src="assets/js/code.js"></script>
 </body>
 </html>
