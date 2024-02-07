@@ -92,6 +92,7 @@ function calculateNextBirthDay(dob, today) {
     let currentDate = new Date(today);
 
     let thisYearBirthDay = new Date((new Date()).getFullYear(), dateOfBirth.getMonth(), dateOfBirth.getDate());
+    console.log(thisYearBirthDay);
     let nextBirthDay = thisYearBirthDay;
     let nextYearBirthDay = new Date((new Date()).getFullYear() + 1, dateOfBirth.getMonth(), dateOfBirth.getDate());
     if (currentDate > nextBirthDay) {

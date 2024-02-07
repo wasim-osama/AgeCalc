@@ -1,8 +1,8 @@
 let calcBtn = document.getElementById("calcBtn"),
     ageForm = document.getElementById("ageForm"),
+    ageResult = document.getElementById("ageResult"),
     dobElem = document.getElementById('dob'),
     todayElem = document.getElementById('today'),
-    ageResult = document.getElementById("ageResult"),
     yearValue = document.getElementById("yearValue"),
     monthValue = document.getElementById("monthValue"),
     dayValue = document.getElementById("dayValue"),
@@ -77,9 +77,12 @@ function calculateNextYearBirthdate(dob,today){
     let currentDate = new Date(today);
 
 
+
     let thisYearBirthday = new Date( currentDate.getFullYear(),dateOfBirth.getMonth(),dateOfBirth.getDate());
 
     let nextYearBirthday = new Date(currentDate.getFullYear() + 1,dateOfBirth.getMonth(),dateOfBirth.getDate());
+
+
 
 
     if (thisYearBirthday < currentDate){
@@ -90,12 +93,17 @@ function calculateNextYearBirthdate(dob,today){
     let timeDiff = thisYearBirthday - currentDate;
     console.log(timeDiff);
     let totalDaysLeft= Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    let monthLeft= Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 7 * 4 ));
-    let dayLeft = Math.floor(totalDaysLeft % monthLeft);
+    let monthLeft= Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 30 ));
+    console.log(Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 30 )),'ml');
+    let dayLeft = Math.floor(totalDaysLeft - (monthLeft * 30));
+/*
+    let months = Math.floor(Math.abs((currentDate.getDate() - dateOfBirth.getDate()) / 30 + currentDate.getMonth() - dateOfBirth.getMonth() + (12 * (currentDate.getFullYear() - dateOfBirth.getFullYear()))));
+    let total_days = Math.abs((currentDate.getTime() - dateOfBirth.getTime()) / (1000 * 3600 * 24));
+    let days = total_days - (months * 30)*/
 
 
-    console.log(monthLeft);
-    return {monthLeft, dayLeft};
+
+    return {dayLeft, monthLeft};
 }
 
 function showResult() {
