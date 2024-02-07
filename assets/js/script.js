@@ -119,7 +119,7 @@ function initAgeCalculator() {
 
     // Calculate age and next birthday
     let Age = calculateAge(dob, today);
-    let NextBirthDay = calculateNextBirthDay(dob, today);
+    let NextBirthDay  = calculateNextBirthDay(dob, today);
 
     // Show the result section and hide the form
     ageForm.style.display = 'none';

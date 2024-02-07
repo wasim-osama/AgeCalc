@@ -1,11 +1,14 @@
 let calcBtn = document.getElementById("calcBtn"),
     ageForm = document.getElementById("ageForm"),
+    dobElem = document.getElementById('dob'),
+    todayElem = document.getElementById('today'),
     ageResult = document.getElementById("ageResult"),
     yearValue = document.getElementById("yearValue"),
     monthValue = document.getElementById("monthValue"),
     dayValue = document.getElementById("dayValue"),
-    dobElem = document.getElementById('dob'),
-    todayElem = document.getElementById('today');
+    nextBirthdayMonthValue = document.getElementById("nextBirthdayMonth"),
+    nextBirthdayDaysValue = document.getElementById("nextBirthdayDays"),
+    nextBirthdayDayName = document.getElementById("nextBirthdayDayName");
 
 
 function initDatePicker() {
@@ -50,8 +53,8 @@ function dateValidate(dob, today) {
 }
 
 function calculateAge(dob, today) {
-    let dateOfBirth = new Date(dob);
-    let CurrentDate = new Date(today);
+    let dateOfBirth = new Date(dob),
+        CurrentDate = new Date(today);
 
     let year = CurrentDate.getFullYear() - dateOfBirth.getFullYear();
     let month = CurrentDate.getMonth() - dateOfBirth.getMonth();
@@ -69,12 +72,38 @@ function calculateAge(dob, today) {
     }
     return {year, day, month};
 }
+function calculateNextYearBirthdate(dob,today){
+    let dateOfBirth = new Date(dob);
+    let currentDate = new Date(today);
+
+
+    let thisYearBirthday = new Date( currentDate.getFullYear(),dateOfBirth.getMonth(),dateOfBirth.getDate());
+
+    let nextYearBirthday = new Date(currentDate.getFullYear() + 1,dateOfBirth.getMonth(),dateOfBirth.getDate());
+
+
+    if (thisYearBirthday < currentDate){
+        thisYearBirthday = nextYearBirthday;
+    }
+
+
+    let timeDiff = thisYearBirthday - currentDate;
+    console.log(timeDiff);
+    let totalDaysLeft= Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    let monthLeft= Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 7 * 4 ));
+    let dayLeft = Math.floor(totalDaysLeft % monthLeft);
+
+
+    console.log(monthLeft);
+    return {monthLeft, dayLeft};
+}
 
 function showResult() {
     let dob = dobElem.value;
     let today = todayElem.value;
 
     let age = calculateAge(dob, today);
+    let nextBirthday = calculateNextYearBirthdate(dob,today);
     if (!dateValidate(dob, today)) {
         return;
     }
@@ -84,6 +113,8 @@ function showResult() {
     yearValue.innerHTML = age.year;
     monthValue.innerHTML = age.month;
     dayValue.innerHTML = age.day;
+    nextBirthdayMonthValue.innerHTML = nextBirthday.monthLeft;
+    nextBirthdayDaysValue.innerHTML = nextBirthday.dayLeft;
 }
 
 
