@@ -1,16 +1,102 @@
+$primary-color : #A3D9E6;
+$accents-color : #3AAFA9;
+$secondary-color: #5E9E92;
+$hov-color : #82C7D1;
+$header-font :  'Raleway', sans-serif;
+$text-font :'Open Sans', sans-serif;
+
+
+
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: $header-font;
 }
-.age-selector-area{
-  background-color: #4F6F52;
-  padding: 20px;
-  border-radius: 10px;
-  .date-box{
-    display: block;
-    width: 100px;
-    height: 100px;
+.age-calc-main-page{
+  height: 100vh;
+  display: block;
+  background-color: #f5f5f5;
+  .header-text{
+    .title{
+      font-size: 40px;
+      font-weight: 600;
+    }
+    .paragraph{
+      font-size: 14px;
+      font-weight: 400;
+      font-family: $text-font;
+      color: $accents-color;
+    }
+  }
+  .calc-container{
+    .tabs{
+      .custom-tabs{
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        color: #000;
+        cursor: pointer;
+      }
+      .overlay{
+          width: 100%;
+          height: 3px;
+          background-color: #f5f5f5;
+          bottom: 0;
+      }
+    }
+    .calc{
+      background-color: #A3D9E6;
+      .age-selector-area{
+        background-color: #5E9E92;
+        padding: 20px 75px;
+        .blob-1{
+          bottom: -30px;
+          width: 100%;
+          right: 0;
+          z-index: 0;
+          rotate: 180deg;
+        }
+        .blob-2{
+          top: -30px;
+          width: 100%;
+          left: 0;
+          z-index: 0;
+        }
+        .date-box{
+          display: block;
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
 
+  }
+}
+
+
+//global
+input{
+  background-color: #f5f5f5;
+}
+input[placeholder]{
+  font-weight: 400;
+  color: $accents-color;
+  font-family: $text-font;
+}
+.custom-btn{
+  padding: 10px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  background-color: $accents-color;
+  color: #f5f5f5;
+  margin-top: 15px;
+  &:hover{
+    background-color: $hov-color;
+    color: #f5f5f5;
   }
 }

@@ -1,4 +1,5 @@
 let calcBtn = document.getElementById("calcBtn"),
+    resetBtn = document.getElementById("recalBtn"),
     ageForm = document.getElementById("ageForm"),
     ageResult = document.getElementById("ageResult"),
     dobElem = document.getElementById('dob'),
@@ -8,7 +9,7 @@ let calcBtn = document.getElementById("calcBtn"),
     dayValue = document.getElementById("dayValue"),
     nextBirthdayMonthValue = document.getElementById("nextBirthdayMonth"),
     nextBirthdayDaysValue = document.getElementById("nextBirthdayDays"),
-    nextBirthdayDayName = document.getElementById("nextBirthdayDayName");
+    nextBirthdayDayNameValue = document.getElementById("nextBirthdayDayName");
 
 
 function initDatePicker() {
@@ -59,8 +60,15 @@ function calculateAge(dob, today) {
     let year = CurrentDate.getFullYear() - dateOfBirth.getFullYear();
     let month = CurrentDate.getMonth() - dateOfBirth.getMonth();
     let day = CurrentDate.getDate() - dateOfBirth.getDate();
+    /*try
+    let monthAll= ["January","February","March","April","May","June","July",
+        "August","September","October","November","December"];
+    let monthAllDays = [31 , 28 , 31 , 30 , 31 , 30 , 31 , 31 , 30 , 31 , 30 , 31 ];
 
-    if (month < 0) {
+    if (){}
+    */
+
+    if (month < 0 || (month === 0 && day < 0)) {
         year--;
         month += 12;
     }
@@ -91,19 +99,19 @@ function calculateNextYearBirthdate(dob,today){
 
 
     let timeDiff = thisYearBirthday - currentDate;
-    console.log(timeDiff);
     let totalDaysLeft= Math.floor(timeDiff / (1000 * 60 * 60 * 24));
     let monthLeft= Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 30 ));
-    console.log(Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 30 )),'ml');
     let dayLeft = Math.floor(totalDaysLeft - (monthLeft * 30));
-/*
-    let months = Math.floor(Math.abs((currentDate.getDate() - dateOfBirth.getDate()) / 30 + currentDate.getMonth() - dateOfBirth.getMonth() + (12 * (currentDate.getFullYear() - dateOfBirth.getFullYear()))));
-    let total_days = Math.abs((currentDate.getTime() - dateOfBirth.getTime()) / (1000 * 3600 * 24));
-    let days = total_days - (months * 30)*/
+
+
+    let dayNameArr = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+    let nextBirthdayDay = Math.floor(thisYearBirthday.getDay());
+    let nextBirthdayDayName = dayNameArr[nextBirthdayDay];
 
 
 
-    return {dayLeft, monthLeft};
+
+    return {dayLeft, monthLeft, nextBirthdayDayName};
 }
 
 function showResult() {
@@ -123,9 +131,22 @@ function showResult() {
     dayValue.innerHTML = age.day;
     nextBirthdayMonthValue.innerHTML = nextBirthday.monthLeft;
     nextBirthdayDaysValue.innerHTML = nextBirthday.dayLeft;
+    nextBirthdayDayNameValue.innerHTML = nextBirthday.nextBirthdayDayName;
+}
+function resetAll() {
+    ageForm.style.display = 'block';
+    ageResult.style.display = 'none';
+
+    yearValue.innerHTML = '';
+    monthValue.innerHTML = '';
+    dayValue.innerHTML = '';
+    nextBirthdayMonthValue.innerHTML = '';
+    nextBirthdayDaysValue.innerHTML = '';
+    nextBirthdayDayNameValue.innerHTML = '';
 }
 
 
 calcBtn.addEventListener('click', showResult);
+resetBtn.addEventListener('click', resetAll);
 
 window.onload = (initDatePicker);
