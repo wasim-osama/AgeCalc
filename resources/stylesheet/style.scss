@@ -14,7 +14,7 @@ $text-font :'Open Sans', sans-serif;
   box-sizing: border-box;
   font-family: $header-font;
 }
-.age-calc-main-page{
+.calc-main-page{
   height: 100vh;
   display: block;
   background-color: #f5f5f5;
@@ -45,6 +45,7 @@ $text-font :'Open Sans', sans-serif;
           height: 3px;
           background-color: #f5f5f5;
           bottom: 0;
+          transition: all 0.3s ease-in-out;
       }
     }
     .calc{
@@ -52,6 +53,9 @@ $text-font :'Open Sans', sans-serif;
       .age-selector-area{
         background-color: #5E9E92;
         padding: 20px 75px;
+        @media only screen and (max-width: 560px){
+          padding: 25px;
+        }
         .blob-1{
           bottom: -30px;
           width: 100%;

@@ -24,7 +24,7 @@
 </head>
 <body>
 <!--Header-->
-<main class="age-calc-main-page">
+<main class="calc-main-page">
     <div class="container">
         <!--Header start here-->
         <header class="header">
@@ -40,7 +40,8 @@
         <!--Header end here-->
         <!--Calculator content start here-->
         <section class="calc-container">
-            <section class="w-100" id="ageForm">
+            <!--calc start here-->
+            <div class="w-100">
                 <div class="row">
                     <div class="col-lg-6 offset-lg-3">
                         <div class="calc">
@@ -48,87 +49,334 @@
                             <nav class="tabs pt-4">
                                 <ul class="nav justify-content-center">
                                     <li class="nav-item position-relative">
-                                        <div class="nav-link custom-tabs poi">
-                                            Age Calculator
+                                        <div class="nav-link custom-tabs" >
+                                            <a class="text-decoration-none text-dark" id="ageCalcTab">Age Calculator</a>
                                         </div>
-                                        <div class="overlay position-absolute"></div>
+                                        <div class="overlay" id="ageOverlay"></div>
 
                                     </li>
                                     <li class="nav-item position-relative">
                                         <div class="nav-link custom-tabs">
-                                            BMI Calculator
+                                            <a class="text-decoration-none text-dark" id="bmiCalcTab">BMI Calculator</a>
                                         </div>
-                                        <div class="overlay d-none"></div>
+                                        <div class="overlay" style="width: 0;" id="bmiOverlay"></div>
                                     </li>
                                 </ul>
                             </nav>
                             <!--/nav-->
-                            <!--form-area-->
-                            <div class="age-selector-area overflow-hidden position-relative">
-                                <!--Blob-->
-                                <div class="position-absolute blob-1">
-                                    <svg class="blob-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                                        <path fill="#A3D9E6">
-                                            <animate attributeName="d"
-                                                     dur="22000ms"
-                                                     repeatCount="indefinite"
-                                                     values="M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                            <!--age-calculator-starts-->
+                            <section class="age-calculator" id="ageCalculator">
+                                <!--age-form-area Starts-->
+                                <div class="age-selector-area overflow-hidden position-relative" id="ageForm">
+                                    <!--blob-abs-->
+                                    <div class="position-absolute blob-1">
+                                        <svg class="blob-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                                            <path fill="#A3D9E6">
+                                                <animate attributeName="d"
+                                                         dur="22000ms"
+                                                         repeatCount="indefinite"
+                                                         values="M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
                                                     M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,80C672,43,768,21,864,58.7C960,96,1056,192,1152,245.3C1248,299,1344,309,1392,314.7L1440,320L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
                                                     M0,32L48,32C96,32,192,32,288,69.3C384,107,480,181,576,197.3C672,213,768,171,864,154.7C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
                                                     M0,128L48,144C96,160,192,192,288,202.7C384,213,480,203,576,192C672,181,768,171,864,165.3C960,160,1056,160,1152,176C1248,192,1344,224,1392,240L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
                                                     M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;"
-                                            >
-                                            </animate>
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div class="position-absolute blob-2">
-                                    <svg class="blob-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                                        <path fill="#A3D9E6">
-                                            <animate attributeName="d"
-                                                     dur="22000ms"
-                                                     repeatCount="indefinite"
-                                                     values="M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                >
+                                                </animate>
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="position-absolute blob-2">
+                                        <svg class="blob-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                                            <path fill="#A3D9E6">
+                                                <animate attributeName="d"
+                                                         dur="22000ms"
+                                                         repeatCount="indefinite"
+                                                         values="M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
                                                     M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,80C672,43,768,21,864,58.7C960,96,1056,192,1152,245.3C1248,299,1344,309,1392,314.7L1440,320L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
                                                     M0,32L48,32C96,32,192,32,288,69.3C384,107,480,181,576,197.3C672,213,768,171,864,154.7C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
                                                     M0,128L48,144C96,160,192,192,288,202.7C384,213,480,203,576,192C672,181,768,171,864,165.3C960,160,1056,160,1152,176C1248,192,1344,224,1392,240L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
                                                     M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;"
-                                            >
-                                            </animate>
-                                        </path>
-                                    </svg>
-                                </div>
+                                                >
+                                                </animate>
+                                            </path>
+                                        </svg>
+                                    </div>
 
-                                <!--/Blob-->
-                                <div class="w-100 position-relative z-1">
-                                    <!--select date-->
-                                    <div class="date-picker pb-2">
-                                        <div class="title h5 text-light">Your Date Of Birth Is:</div>
-                                        <form action="">
-                                            <input class="form-control rounded-5" type="text" id="dob"
-                                                   placeholder="Enter Your Birthdate here">
-                                        </form>
+                                    <!--/blob-abs-->
+                                    <div class="w-100 position-relative z-1">
+                                        <!--select date-->
+                                        <div class="date-picker pb-2">
+                                            <div class="title h5 text-light">Your Date Of Birth Is:</div>
+                                            <form action="">
+                                                <input class="form-control rounded-5" type="text" id="dob"
+                                                       placeholder="Enter Your Birthdate here">
+                                            </form>
+                                        </div>
+                                        <!--today's-date-->
+                                        <div class="date-picker pb-2">
+                                            <div class="title h5 text-light">Today's Date</div>
+                                            <form action="">
+                                                <input class="form-control rounded-5" type="text" id="today">
+                                            </form>
+                                        </div>
+                                        <!--Button-->
+                                        <div class="text-center">
+                                            <button class="btn custom-btn" id="calcBtn">
+                                                Calculate
+                                            </button>
+                                        </div>
+                                        <!--/Button-->
                                     </div>
-                                    <!--today's-date-->
-                                    <div class="date-picker pb-2">
-                                        <div class="title h5 text-light">Today's Date</div>
-                                        <form action="">
-                                            <input class="form-control rounded-5" type="text" id="today">
-                                        </form>
-                                    </div>
-                                    <!--Button-->
-                                    <div class="text-center">
-                                        <button class="btn custom-btn" id="calcBtn">
-                                            Calculate
-                                        </button>
-                                    </div>
-                                    <!--/Button-->
                                 </div>
-                            </div>
+                                <!--age-form-area ends-->
+                                <!--age-result-starts-->
+                                <div class="c-date text-center age-selector-area position-relative" id="ageResult"
+                                     style="display: none">
+                                    <!--blob-abs-->
+                                    <div class="position-absolute blob-1 bottom-0">
+                                        <svg class="blob-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                                            <path fill="#A3D9E6">
+                                                <animate attributeName="d"
+                                                         dur="22000ms"
+                                                         repeatCount="indefinite"
+                                                         values="M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,80C672,43,768,21,864,58.7C960,96,1056,192,1152,245.3C1248,299,1344,309,1392,314.7L1440,320L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,32L48,32C96,32,192,32,288,69.3C384,107,480,181,576,197.3C672,213,768,171,864,154.7C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,202.7C384,213,480,203,576,192C672,181,768,171,864,165.3C960,160,1056,160,1152,176C1248,192,1344,224,1392,240L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;"
+                                                >
+                                                </animate>
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="position-absolute blob-2 top-0">
+                                        <svg class="blob-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                                            <path fill="#A3D9E6">
+                                                <animate attributeName="d"
+                                                         dur="22000ms"
+                                                         repeatCount="indefinite"
+                                                         values="M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,80C672,43,768,21,864,58.7C960,96,1056,192,1152,245.3C1248,299,1344,309,1392,314.7L1440,320L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,32L48,32C96,32,192,32,288,69.3C384,107,480,181,576,197.3C672,213,768,171,864,154.7C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,202.7C384,213,480,203,576,192C672,181,768,171,864,165.3C960,160,1056,160,1152,176C1248,192,1344,224,1392,240L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;"
+                                                >
+                                                </animate>
+                                            </path>
+                                        </svg>
+                                    </div>
+
+                                    <!--/blob-abs-->
+                                    <div class="w-100 position-relative z-1">
+                                        <div class="title h5 text-light">Your Age Is</div>
+                                        <div class="date-box-container d-flex justify-content-center pb-3">
+                                            <div class="date-box rounded-pill bg-light d-flex align-items-center">
+                                                <div class="w-100">
+                                                    <div class="text">Year</div>
+                                                    <div class="num fs-3 fw-bold" id="yearValue"></div>
+                                                </div>
+                                            </div>
+                                            <div class="date-box rounded-pill bg-light d-flex align-items-center mx-2">
+                                                <div class="w-100">
+                                                    <div class="text">Month</div>
+                                                    <div class="num fs-3 fw-bold" id="monthValue"></div>
+                                                </div>
+                                            </div>
+                                            <div class="date-box rounded-pill bg-light d-flex align-items-center">
+                                                <div class="w-100">
+                                                    <div class="text">Day</div>
+                                                    <div class="num fs-3 fw-bold" id="dayValue"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="title h5 text-light">Your Next Birthday In:</div>
+                                                <div class="date-box-container d-flex justify-content-center">
+                                                    <div class="date-box rounded-pill bg-light d-flex align-items-center">
+                                                        <div class="w-100">
+                                                            <div class="text">Month</div>
+                                                            <div class="num fs-3 fw-bold" id="nextBirthdayMonth"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="date-box rounded-pill bg-light d-flex align-items-center mx-2">
+                                                        <div class="w-100">
+                                                            <div class="text">Days</div>
+                                                            <div class="num fs-3 fw-bold" id="nextBirthdayDays"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-center justify-content-center h-100">
+                                                    <div class="title fs-4 text-light">Your Birthday Is On <br> <span
+                                                            class="fw-bold text-capitalize" id="nextBirthdayDayName"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button class="btn custom-btn" id="recalBtn">
+                                                Recalculate
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--age-result-ends-->
+                            </section>
+                            <!--age-calculator-ends-->
+                            <!--Bmi-calc-start here-->
+                            <section class="bmi-calc-sec" style="display: none" id="bmiCalculator">
+                                <!--Bmi-form-area Starts-->
+                                <div class="age-selector-area overflow-hidden position-relative" id="bmiForm">
+                                    <!--blob-abs-->
+                                    <div class="position-absolute blob-1">
+                                        <svg class="blob-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                                            <path fill="#A3D9E6">
+                                                <animate attributeName="d"
+                                                         dur="22000ms"
+                                                         repeatCount="indefinite"
+                                                         values="M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,80C672,43,768,21,864,58.7C960,96,1056,192,1152,245.3C1248,299,1344,309,1392,314.7L1440,320L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,32L48,32C96,32,192,32,288,69.3C384,107,480,181,576,197.3C672,213,768,171,864,154.7C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,202.7C384,213,480,203,576,192C672,181,768,171,864,165.3C960,160,1056,160,1152,176C1248,192,1344,224,1392,240L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;"
+                                                >
+                                                </animate>
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="position-absolute blob-2">
+                                        <svg class="blob-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                                            <path fill="#A3D9E6">
+                                                <animate attributeName="d"
+                                                         dur="22000ms"
+                                                         repeatCount="indefinite"
+                                                         values="M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,80C672,43,768,21,864,58.7C960,96,1056,192,1152,245.3C1248,299,1344,309,1392,314.7L1440,320L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,32L48,32C96,32,192,32,288,69.3C384,107,480,181,576,197.3C672,213,768,171,864,154.7C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,202.7C384,213,480,203,576,192C672,181,768,171,864,165.3C960,160,1056,160,1152,176C1248,192,1344,224,1392,240L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;"
+                                                >
+                                                </animate>
+                                            </path>
+                                        </svg>
+                                    </div>
+
+                                    <!--/blob-abs-->
+                                    <div class="w-100 position-relative z-1">
+                                        <!--select weight-->
+                                        <div class="pb-2">
+                                            <div class="title h5 text-light">Your Weight (In Kilogram)</div>
+                                            <form action="">
+                                                <input class="form-control rounded-5" type="number" id="weight"
+                                                       placeholder="Kilogram">
+                                            </form>
+                                        </div>
+                                        <!--Select Height-->
+                                        <div class="pb-2">
+                                            <div class="title h5 text-light">Your Height(Imperial units of measurement)</div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <form action="">
+                                                        <input class="form-control rounded-5" type="number" id="feet" placeholder="feet">
+                                                    </form>
+                                                </div>
+                                                <div class="col-6">
+                                                    <form action="">
+                                                        <input class="form-control rounded-5" type="number" id="inches" placeholder="inches">
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Button-->
+                                        <div class="text-center">
+                                            <button class="btn custom-btn" id="bmiCalcBtn">
+                                                Calculate
+                                            </button>
+                                        </div>
+                                        <!--/Button-->
+                                    </div>
+                                </div>
+                                <div class="c-date text-center age-selector-area position-relative" id="bmiResult"
+                                     style="display: none">
+                                    <!--blob-abs-->
+                                    <div class="position-absolute blob-1 bottom-0">
+                                        <svg class="blob-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                                            <path fill="#A3D9E6">
+                                                <animate attributeName="d"
+                                                         dur="22000ms"
+                                                         repeatCount="indefinite"
+                                                         values="M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,80C672,43,768,21,864,58.7C960,96,1056,192,1152,245.3C1248,299,1344,309,1392,314.7L1440,320L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,32L48,32C96,32,192,32,288,69.3C384,107,480,181,576,197.3C672,213,768,171,864,154.7C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,202.7C384,213,480,203,576,192C672,181,768,171,864,165.3C960,160,1056,160,1152,176C1248,192,1344,224,1392,240L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;"
+                                                >
+                                                </animate>
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="position-absolute blob-2 top-0">
+                                        <svg class="blob-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                                            <path fill="#A3D9E6">
+                                                <animate attributeName="d"
+                                                         dur="22000ms"
+                                                         repeatCount="indefinite"
+                                                         values="M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,181.3C384,171,480,117,576,80C672,43,768,21,864,58.7C960,96,1056,192,1152,245.3C1248,299,1344,309,1392,314.7L1440,320L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,32L48,32C96,32,192,32,288,69.3C384,107,480,181,576,197.3C672,213,768,171,864,154.7C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,128L48,144C96,160,192,192,288,202.7C384,213,480,203,576,192C672,181,768,171,864,165.3C960,160,1056,160,1152,176C1248,192,1344,224,1392,240L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+                                                    M0,64L48,85.3C96,107,192,149,288,154.7C384,160,480,128,576,106.7C672,85,768,75,864,64C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;"
+                                                >
+                                                </animate>
+                                            </path>
+                                        </svg>
+                                    </div>
+
+                                    <!--/blob-abs-->
+                                    <div class="w-100 position-relative z-1">
+                                        <div class="title h5 text-light">Your Bmi Is</div>
+                                        <div class="date-box-container d-flex justify-content-center pb-3">
+                                            <div class="date-box rounded-pill bg-light d-flex align-items-center">
+                                                <div class="w-100">
+                                                    <div class="num fs-3 fw-bold" id="bmiValue"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="title h5 text-light">Your BMI falls within the
+                                                    <span id="bmiRange">Healthy Weight</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-center justify-content-center h-100">
+                                                    <div class="title text-light text-end">
+                                                        Under 18.5 = Underweight <br>
+                                                        Under 18.5 - 24.9 = Healthy <br>
+                                                        Under 25.0 - 29.0 = Overweight <br>
+                                                        Over 30 = Obese <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button class="btn custom-btn" id="bmiRecalBtn">
+                                                Recalculate
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                            <!--Bmi-calc-ends here-->
                             <!--Footer Starts here-->
                             <footer class="footer">
                                 <div class="text-end px-3 py-2 text-light fw-light">&copy; <a
-                                        class="text-decoration-none link-info fw-bold" href="www.wasim-osama.github.io"
+                                        class="text-decoration-none link-info fw-bold"
+                                        href="http://wasim-osama.github.io"
                                         target="_blank">Wasim Osama </a> All Right Reserved
                                 </div>
                             </footer>
@@ -136,151 +384,15 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <!--/AgeSelector-->
-            <section class="w-100" id="ageResult" style="display: none">
-                <div class="row">
-                    <div class="col-lg-6 offset-lg-3">
-                        <div class="calc">
-                            <!--form-area-->
-                            <div class="c-date text-center age-selector-area">
-                                <div class="title h5 text-light">Your Age Is</div>
-                                <div class="date-box-container d-flex justify-content-center">
-                                    <div class="date-box rounded-pill bg-light d-flex align-items-center">
-                                        <div class="w-100">
-                                            <div class="text">Year</div>
-                                            <div class="num fs-3 fw-bold" id="yearValue"></div>
-                                        </div>
-                                    </div>
-                                    <div class="date-box rounded-pill bg-light d-flex align-items-center mx-2">
-                                        <div class="w-100">
-                                            <div class="text">Month</div>
-                                            <div class="num fs-3 fw-bold" id="monthValue"></div>
-                                        </div>
-                                    </div>
-                                    <div class="date-box rounded-pill bg-light d-flex align-items-center">
-                                        <div class="w-100">
-                                            <div class="text">Day</div>
-                                            <div class="num fs-3 fw-bold" id="dayValue"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                <!--select date-->
-                                <div class="c-date text-center age-selector-area mt-2">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <div class="title h5 text-light">Your Next Birthday In:</div>
-                                            <div class="date-box-container d-flex justify-content-center">
-                                                <div class="date-box rounded-pill bg-light d-flex align-items-center">
-                                                    <div class="w-100">
-                                                        <div class="text">Month</div>
-                                                        <div class="num fs-3 fw-bold" id="nextBirthdayMonth"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="date-box rounded-pill bg-light d-flex align-items-center mx-2">
-                                                    <div class="w-100">
-                                                        <div class="text">Days</div>
-                                                        <div class="num fs-3 fw-bold" id="nextBirthdayDays"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="d-flex align-items-center justify-content-center h-100">
-                                                <div class="title fs-3 text-light">Your Birthday Is On <br> <span
-                                                        class="fw-bold" id="nextBirthdayDayName">Friday</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Button-->
-                                <div class="text-center">
-                                    <button class="btn custom-btn" id="recalBtn">
-                                        Re-Calculate
-                                    </button>
-                                </div>
-                                <!--/Button-->
+                <!--Age Form end here-->
+                <!--/Age Result Start here-->
 
-                                <!--today's-date-->
-                        </div>
-                        <!--Footer Starts here-->
-                        <footer class="footer">
-                            <div class="text-end px-3 py-2 text-light fw-light">&copy; <a
-                                    class="text-decoration-none link-info fw-bold" href="www.wasim-osama.github.io"
-                                    target="_blank">Wasim Osama </a> All Right Reserved
-                            </div>
-                        </footer>
-                        <!--Footer Starts here-->
-                    </div>
-                </div>
-            </section>
-            <div class="w-100" id="" style="display: none">
-                <!--AgeResult-->
-                <section class="age-result">
-                    <div class="row">
-                        <div class="col-6 offset-3">
-                            <!--showResult-->
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 offset-3">
-                            <!--select date-->
-                            <div class="c-date text-center age-selector-area">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="title h5 text-light">Your Next Birthday In:</div>
-                                        <div class="date-box-container d-flex justify-content-center">
-                                            <div class="date-box rounded-pill bg-light d-flex align-items-center">
-                                                <div class="w-100">
-                                                    <div class="text">Month</div>
-                                                    <div class="num fs-3 fw-bold" id="nextBirthdayMonth"></div>
-                                                </div>
-                                            </div>
-                                            <div class="date-box rounded-pill bg-light d-flex align-items-center mx-2">
-                                                <div class="w-100">
-                                                    <div class="text">Days</div>
-                                                    <div class="num fs-3 fw-bold" id="nextBirthdayDays"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="d-flex align-items-center justify-content-center h-100">
-                                            <div class="title fs-3 text-light">Your Birthday Is On <br> <span
-                                                    class="fw-bold" id="nextBirthdayDayName">Friday</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Button-->
-                            <div class="text-center">
-                                <button class="btn custom-btn my-3 py-3 w-50" id="recalBtn">
-                                    <i class="las la-sync"></i>
-                                    Re-Calculate
-                                </button>
-                            </div>
-                            <!--/Button-->
-
-                            <!--today's-date-->
-                        </div>
-                    </div>
-                </section>
-                <!--/AgeResult-->
-                <!--NextBD-->
-                <section class="age-result my-3">
-                    <div class="row">
-
-                    </div>
-                </section>
+                <!--/Age Result Start here-->
             </div>
+            <!--calc ends here-->
         </section>
         <!--Calculator content end here-->
-
     </div>
-    <!--AgeSelector-->
 </main>
 
 
